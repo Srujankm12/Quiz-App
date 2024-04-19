@@ -292,14 +292,14 @@ class _HomepageState extends State<Homepage> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(90),
                                 image: DecorationImage(
-                                  image: AssetImage("images/places.jpeg"),
+                                  image: AssetImage("images/sports.jpeg"),
                                   fit: BoxFit.cover,
                                 ),
                               ),
                             ),
                             SizedBox(height: 10),
                             Text(
-                              "PLACES",
+                              "SPORTS",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontStyle: FontStyle.italic,
@@ -328,14 +328,14 @@ class _HomepageState extends State<Homepage> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(90),
                                 image: DecorationImage(
-                                  image: AssetImage("images/fruits.avif"),
+                                  image: AssetImage("images/others.png"),
                                   fit: BoxFit.cover,
                                 ),
                               ),
                             ),
                             SizedBox(height: 10),
                             Text(
-                              "FRUITS",
+                              "OTHERS",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontStyle: FontStyle.italic,
