@@ -26,6 +26,12 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSCameraUsageDescription</key>
+	<string>werequirecameraaccesstoconnecttoacall</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allowaccesstophotolibrary</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>werequiremicrophoneaccesstoconnecttoacall</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>

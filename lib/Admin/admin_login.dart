@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quizapp/Admin/addquiz.dart';
+import 'package:quizapp/main.dart';
+
 import 'package:quizapp/pages/Home_page.dart';
 class AdminLogin extends StatefulWidget {
   const AdminLogin({super.key});
