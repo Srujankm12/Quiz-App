@@ -99,12 +99,14 @@ class _AddquizState extends State<Addquiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Add Quiz",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 35.0,
-            fontWeight: FontWeight.bold,
+        title: Center(
+          child: Text(
+            "Add Quiz",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 35.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),

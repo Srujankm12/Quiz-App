@@ -280,7 +280,7 @@ class _QuestionState extends State<Question> {
 
                       ),
                     ),
-                    SizedBox(height: 90,),
+                    SizedBox(height: 50,),
                     GestureDetector(
                       onTap: (){
                         setState(() {
@@ -352,12 +352,14 @@ class _QuestionState extends State<Question> {
                     ),
                   ),
                   SizedBox(width: 100),
-                  Text(
-                    widget.category,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
+                  Center(
+                    child: Text(
+                      widget.category,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],

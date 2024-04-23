@@ -96,7 +96,7 @@ class _HomepageState extends State<Homepage> {
                                 style: GoogleFonts.varelaRound(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 22.0,
+                                  fontSize: 18.0,
                                 ),
                               ),
                             ],
