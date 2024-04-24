@@ -27,7 +27,7 @@ class _HomepageState extends State<Homepage> {
                 children: [
                   Container(
                     padding: EdgeInsets.only(left: 20.0, top: 50),
-                    height: 210,
+                    height: 220,
                     decoration: BoxDecoration(
                       color: Colors.purple,
                       borderRadius: BorderRadius.only(
