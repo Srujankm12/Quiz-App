@@ -70,7 +70,7 @@ class _HomepageState extends State<Homepage> {
                     margin: EdgeInsets.only(
                       top: 125,
                       left: 20.0,
-                      right: 20.0,
+                      right: 19.0,
                     ),
                     child: Center(
                       child: Row(
