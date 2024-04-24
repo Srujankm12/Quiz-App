@@ -12,12 +12,7 @@ class Homepage extends StatefulWidget {
   @override
   State<Homepage> createState() => _HomepageState();
 }
-
 class _HomepageState extends State<Homepage> {
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +27,7 @@ class _HomepageState extends State<Homepage> {
                 children: [
                   Container(
                     padding: EdgeInsets.only(left: 20.0, top: 50),
-                    height: 220,
+                    height: 210,
                     decoration: BoxDecoration(
                       color: Colors.purple,
                       borderRadius: BorderRadius.only(
