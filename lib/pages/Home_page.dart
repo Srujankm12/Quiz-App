@@ -50,7 +50,7 @@ class _HomepageState extends State<Homepage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 10.0),
                           child: Text(
-                            "Srujan KM",
+                            "User",
                             style: GoogleFonts.acme(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,

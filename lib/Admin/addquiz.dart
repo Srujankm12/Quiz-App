@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -35,11 +34,9 @@ class _AddquizState extends State<Addquiz> {
       String addId = randomAlphaNumeric(10);
 
       final Reference firebaseStorageRef = FirebaseStorage.instance.ref().child("blogImage").child(addId);
-      print(selectedImage!);
       final UploadTask task = firebaseStorageRef.putFile(selectedImage!);
       final snapshot = await task;
       final String downloadUrl = await snapshot.ref.getDownloadURL();
-      print("Hii");
 
       Map<String, dynamic> addQuiz = {
         "Image": downloadUrl.trim(),
@@ -50,7 +47,7 @@ class _AddquizState extends State<Addquiz> {
         "correct": correctController.text.trim(),
       };
 
-      await DatabaseMethods().addQuizCategory(addQuiz, value!).then((value) {
+      await DatabaseMethods().addQuizCategory(addQuiz, value!).then((_) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Colors.cyan,
           content: Text(
@@ -58,8 +55,10 @@ class _AddquizState extends State<Addquiz> {
             style: TextStyle(fontSize: 18.0),
           ),
         ));
-      })
-          .catchError((error) {
+
+        // Reset fields after successful upload
+        resetFields();
+      }).catchError((error) {
         print("Error uploading quiz: $error");
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Colors.red,
@@ -80,6 +79,18 @@ class _AddquizState extends State<Addquiz> {
     }
   }
 
+  void resetFields() {
+    setState(() {
+      selectedImage = null;
+      option1controller.clear();
+      option2controller.clear();
+      option3controller.clear();
+      option4controller.clear();
+      correctController.clear();
+      value = null; // Reset the dropdown value
+    });
+  }
+
   String? value;
   final List<String> Quizitems = [
     'Objects',
@@ -87,7 +98,7 @@ class _AddquizState extends State<Addquiz> {
     'Place',
     'Fruits',
     'Sports',
-    'others'
+    'Others'
   ];
   TextEditingController option1controller = TextEditingController();
   TextEditingController option2controller = TextEditingController();

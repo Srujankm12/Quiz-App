@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:quizapp/Admin/addquiz.dart';
 import 'package:quizapp/Admin/admin_login.dart';
+import 'package:quizapp/login/login_page.dart';
 import 'package:quizapp/pages/Home_page.dart';
 import 'package:quizapp/pages/questions.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
      debugShowCheckedModeBanner: false,
-      home: Homepage(
+      home:Homepage(
 
       ),
 

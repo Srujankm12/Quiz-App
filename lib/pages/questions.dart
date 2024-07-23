@@ -40,274 +40,277 @@ class _QuestionState extends State<Question> {
           itemCount: snapshot.data.docs.length,
           itemBuilder: (context, index) {
             DocumentSnapshot ds = snapshot.data.docs[index];
-            return  Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
+            return SingleChildScrollView(
+              child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
                   ),
-                ),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: 20.0,
-                        top: 40.0,
-                        right: 20.0,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 20.0,
+                          top: 40.0,
+                          right: 20.0,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.network(
+                            ds["Image"],
+                            height: 300,
+                            width: MediaQuery.of(context).size.width,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.network(
-                          ds["Image"],
-                          height: 300,
+                      SizedBox(height: 20),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            show = true;
+                          });
+                        },
+                        child: show
+                            ? Container(
+                          margin: EdgeInsets.only(
+                            left: 10,
+                            right: 10,
+                            top: 10,
+                          ),
                           width: MediaQuery.of(context).size.width,
-                          fit: BoxFit.cover,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color:ds["correct"]==ds["option1"]? Colors.green:Colors.red,width: 1.5
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                           child: Text(
+                            ds["option1"],
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        )
+                            : Container(
+                          margin: EdgeInsets.only(left: 10,
+                              right: 10,
+                              top: 10),
+                          width: MediaQuery.of(context).size.width,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color:Colors.black87,width: 1.5
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Text(
+                            ds["option1"],
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          show = true;
-                        });
-                      },
-                      child: show
-                          ? Container(
-                        margin: EdgeInsets.only(
-                          left: 10,
-                          right: 10,
-                          top: 10,
-                        ),
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color:ds["correct"]==ds["option1"]? Colors.green:Colors.red,width: 1.5
+                      SizedBox(height: 20),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            show = true;
+                          });
+                        },
+                        child: show
+                            ? Container(
+                          margin: EdgeInsets.only(
+                            left: 10,
+                            right: 10,
+                            top: 10,
                           ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                         child: Text(
-                          ds["option1"],
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
+                          width: MediaQuery.of(context).size.width,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color:ds["correct"]==ds["option2"]? Colors.green:Colors.red,width: 1.5
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Text(
+                            ds["option2"],
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        )
+                            : Container(
+                          margin: EdgeInsets.only(left: 10,
+                              right: 10,
+                              top: 10),
+                          width: MediaQuery.of(context).size.width,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color:Colors.black87,width: 1.5
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Text(
+                            ds["option2"],
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
-                      )
-                          : Container(
-                        margin: EdgeInsets.only(left: 10,
+                      ),
+                      SizedBox(height: 20),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            show = true;
+                          });
+                        },
+                        child: show
+                            ? Container(
+                          margin: EdgeInsets.only(
+                            left: 10,
+                            right: 10,
+                            top: 10,
+                          ),
+                          width: MediaQuery.of(context).size.width,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color:ds["correct"]==ds["option3"]? Colors.green:Colors.red,width: 1.5
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                           child: Text(
+                            ds["option3"],
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        )
+                            : Container(
+                          margin: EdgeInsets.only(left: 10,
                             right: 10,
                             top: 10),
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color:Colors.black87,width: 1.5
+                          width: MediaQuery.of(context).size.width,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color:Colors.black87,width: 1.5
+                            ),
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Text(
-                          ds["option1"],
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+                          child: Text(
+                            ds["option3"],
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          show = true;
-                        });
-                      },
-                      child: show
-                          ? Container(
-                        margin: EdgeInsets.only(
-                          left: 10,
-                          right: 10,
-                          top: 10,
-                        ),
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color:ds["correct"]==ds["option2"]? Colors.green:Colors.red,width: 1.5
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Text(
-                          ds["option2"],
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      )
-                          : Container(
-                        margin: EdgeInsets.only(left: 10,
+                      SizedBox(height: 20),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            show = true;
+                          });
+                        },
+                        child: show
+                            ? Container(
+                          margin: EdgeInsets.only(
+                            left: 10,
                             right: 10,
-                            top: 10),
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color:Colors.black87,width: 1.5
+                            top: 10,
                           ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Text(
-                          ds["option2"],
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
+                          width: MediaQuery.of(context).size.width,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color:ds["correct"]==ds["option4"]? Colors.green:Colors.red,width: 1.5
+                            ),
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          show = true;
-                        });
-                      },
-                      child: show
-                          ? Container(
-                        margin: EdgeInsets.only(
-                          left: 10,
-                          right: 10,
-                          top: 10,
-                        ),
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color:ds["correct"]==ds["option3"]? Colors.green:Colors.red,width: 1.5
+                          child: Text(
+                            ds["option4"],
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                         child: Text(
-                          ds["option3"],
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      )
-                          : Container(
-                        margin: EdgeInsets.only(left: 10,
+                        )
+                            : Container(
+                          margin: EdgeInsets.only(left: 10,
                           right: 10,
                           top: 10),
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color:Colors.black87,width: 1.5
+                          width: MediaQuery.of(context).size.width,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color:Colors.black87,width: 1.5
+                            ),
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          borderRadius: BorderRadius.circular(20),
+                          child: Text(
+                            ds["option4"],
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+
                         ),
-                        child: Text(
-                          ds["option3"],
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),),
-                    ),
-                    SizedBox(height: 20),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          show = true;
-                        });
-                      },
-                      child: show
-                          ? Container(
-                        margin: EdgeInsets.only(
-                          left: 10,
-                          right: 10,
-                          top: 10,
-                        ),
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color:ds["correct"]==ds["option4"]? Colors.green:Colors.red,width: 1.5
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Text(
-                          ds["option4"],
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),
+                      ),
+                      SizedBox(height: 50,),
+                      GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            show=false;
+                          });
+                          controller.nextPage(duration: Duration(milliseconds:200 ), curve:Curves.bounceIn );
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)
+                              ),
+
+                                child: Icon
+                                  (Icons.arrow_circle_right,
+                                  color: Colors.black,
+                                  size: 40,
+                                )),
+                          ],
                         ),
                       )
-                          : Container(
-                        margin: EdgeInsets.only(left: 10,
-                        right: 10,
-                        top: 10),
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color:Colors.black87,width: 1.5
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Text(
-                          ds["option4"],
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-
-                      ),
-                    ),
-                    SizedBox(height: 50,),
-                    GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          show=false;
-                        });
-                        controller.nextPage(duration: Duration(milliseconds:200 ), curve:Curves.bounceIn );
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-
-                              child: Icon
-                                (Icons.arrow_circle_right,
-                                color: Colors.black,
-                                size: 40,
-                              )),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                    ],
+                  ),
+              ),
             );
           },
         )
